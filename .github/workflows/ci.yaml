@@ -1,0 +1,18 @@
+name: CI
+on: [push, pull_request, release]
+
+jobs:
+  build_ios_app:
+    name: Build iOS App
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build iOS App Scheme
+        run: set -o pipefail && xcodebuild clean build -project Screenshots.xcodeproj -scheme Screenshots -configuration Debug -destination "platform=iOS Simulator,name=iPhone 16" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
+  build_mac_app:
+    name: Build macOS App
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build macOS App Scheme
+        run: set -o pipefail && xcodebuild clean build -project Screenshots.xcodeproj -scheme Screenshots -configuration Debug -destination "platform=macOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
