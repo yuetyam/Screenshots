@@ -1,5 +1,7 @@
 import SwiftUI
 
+#if os(iOS)
+
 @main
 struct ScreenshotsApp: App {
         var body: some Scene {
@@ -8,3 +10,16 @@ struct ScreenshotsApp: App {
                 }
         }
 }
+
+#else
+
+@main
+struct ScreenshotsApp: App {
+        var body: some Scene {
+                WindowGroup {
+                        Text(verbatim: "placeholder")
+                }
+        }
+}
+
+#endif

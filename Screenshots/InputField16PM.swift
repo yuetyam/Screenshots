@@ -7,7 +7,11 @@ struct InputField16PM: View {
         var body: some View {
                 List {
                         Section {
-                                Color.clear.frame(height: 384)
+                                ZStack {
+                                        Color.clear
+                                        Text(verbatim: "placeholder")
+                                }
+                                .frame(height: 384)
                         }
                         Section {
                                 TextField("Input Text Field", text: $inputText).font(.common)
