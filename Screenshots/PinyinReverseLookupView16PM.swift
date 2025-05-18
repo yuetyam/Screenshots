@@ -34,7 +34,7 @@ struct PinyinReverseLookupView16PM: View {
                                         .font(.master)
                                         HStack(spacing: 0) {
                                                 Spacer()
-                                                Text(verbatim: "候選詞會提示對應嘅粵拼")
+                                                Text(verbatim: "候選詞會標示對應嘅粵拼")
                                                 Spacer()
                                         }
                                         .font(.master)
